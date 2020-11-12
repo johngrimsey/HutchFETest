@@ -17,7 +17,7 @@ export class UserComponent implements OnInit {
 
   public staticData: StaticData;
   public portalSync: PortalSync;
-  public carsMap: Map<string, Car> = new Map<string, Car>();;
+  public carsMap: Map<string, Car> = new Map<string, Car>();
   public resourceMap: Map<string, Resource> = new Map<string, Resource>();
   public augmentMap: Map<string, Augment> = new Map<string, Augment>();
   public ftueConfig: any = null;
@@ -27,7 +27,7 @@ export class UserComponent implements OnInit {
   constructor(public portalSyncService: PortalSyncService, public staticDataService: StaticDataService) { }
 
   ngOnInit(): void {
-    this.staticDataService.getStaticData("placeholder", "placeholder", "placeholder").subscribe(staticDataResponse => {
+    this.staticDataService.getStaticData('placeholder', 'placeholder', 'placeholder').subscribe(staticDataResponse => {
       this.staticData = staticDataResponse;
       // Additional cars map is needed to get static car data by carId as user cars doesn't contain all the required visual properties (e.g car model)
       for (let i = 0; i < this.staticData.cars.length; i++) {
@@ -51,7 +51,7 @@ export class UserComponent implements OnInit {
 
         Object.keys(this.ftueConfig[ftueVersion]).forEach((ftueStory) => {
           const ftueSteps = Object.keys(this.ftueConfig[ftueVersion][ftueStory]);
-          const orderedFTUESteps = [];// new Array(ftueSteps.length);
+          const orderedFTUESteps = []; // new Array(ftueSteps.length);
           for (let i = 0; i < ftueSteps.length; i++) {
             for (let j = 0; j < ftueSteps.length; j++) {
               if (this.ftueConfig[ftueVersion][ftueStory][ftueSteps[j]] === i) {
@@ -70,7 +70,7 @@ export class UserComponent implements OnInit {
         this.carManufacturerEnumMap[Manufacturer[manufacturer]] = manufacturer;
       });
 
-      this.portalSyncService.getPortalSync("placeholder", "placeholder", "placeholder").subscribe(portalSyncResponse => {
+      this.portalSyncService.getPortalSync('placeholder', 'placeholder', 'placeholder').subscribe(portalSyncResponse => {
         this.portalSync = portalSyncResponse;
       });
     });
