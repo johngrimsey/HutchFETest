@@ -10,6 +10,10 @@ This is very rough and I could have made it prettier and more secure. I didn't p
 I ran out of time. Plan would be to have matching user records displayed in a dropdown just like Google. Then clicking a result or hitting enter would then take you to that user record at `/user`.
 The template logic isn't scalable. I would use a iterate over an array containing data to configure search types.
 
+### Dashboard 
+
+I'd add helpful icons to admin section links. I'd also then mirror those section links in a menu in the navbar.
+
 ### `UserComponent`
 
 This form would be broken down into one component per section rather than showing/hiding sections of the form.
