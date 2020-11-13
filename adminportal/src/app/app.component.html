@@ -5,7 +5,7 @@
 
   <ul class="nav navbar-nav">
     <li routerLinkActive="active">
-      <a routerLink="/">Dashboard</a>
+      <a routerLink="/dashboard">Dashboard</a>
     </li>
 
     <li routerLinkActive="active">
@@ -16,6 +16,10 @@
       <a routerLink="/logout">Logout</a>
     </li>
   </ul>
+
+  <div>
+    <span class="badge">{{ env }}</span>
+  </div>
 </div>
 
 <div class="container">
