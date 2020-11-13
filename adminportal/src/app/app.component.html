@@ -4,25 +4,27 @@
       Hutch FE Test - Admin Portal
     </span>
 
-    <ul class="nav navbar-nav" fxLayoutAlign="flex-start center">
-      <li routerLinkActive="active">
-        <a routerLink="/dashboard">Dashboard</a>
-      </li>
+    <ng-container *ngIf="authed|async">
+      <ul class="nav navbar-nav" fxLayoutAlign="flex-start center">
+        <li routerLinkActive="active">
+          <a routerLink="/dashboard">Dashboard</a>
+        </li>
 
-      <!--
-      <li routerLinkActive="active">
-        <a routerLink="/user">User</a>
-      </li>
-      -->
+        <!--
+        <li routerLinkActive="active">
+          <a routerLink="/user">User</a>
+        </li>
+        -->
 
-      <button class="btn btn-sm text-danger" (click)="errorService.setError({ message: 'Simulated error from API call', stacktrace: '{ Stack trace here }' })">
-        Simulate error
-      </button>
+        <button class="btn btn-sm text-danger" (click)="errorService.setError({ message: 'Simulated error from API call', stacktrace: '{ Stack trace here }' })">
+          Simulate error
+        </button>
 
-      <li *ngIf="authed|async">
-        <a routerLink="/logout">Logout</a>
-      </li>
-    </ul>
+        <li>
+          <a routerLink="/logout">Logout</a>
+        </li>
+      </ul>
+    </ng-container>
   </div>
 
   <app-env-info *ngIf="authed|async"></app-env-info>
