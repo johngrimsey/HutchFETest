@@ -1,0 +1,36 @@
+.well {
+  padding: 2em 4em;
+}
+
+.search-container {
+  background-color: white;
+  padding: 1em;
+  border:1px solid #aaa;
+  margin-bottom: 1em;
+}
+
+.query {
+  box-shadow: none;
+}
+
+.clear-btn,
+.search-btn,
+.query {
+  border: 0;
+  font-size: 1.5em;
+  height: 2.5em;
+}
+
+.clear-btn {
+  color: #aaa;
+  border: 1px solid #ccc;
+}
+
+.search-btn {
+  margin-right: 0.5em;
+}
+
+.active {
+  background: lighten(#3071a9, 10%);
+  color: white;
+}

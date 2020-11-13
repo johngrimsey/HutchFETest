@@ -17,7 +17,7 @@ export class AuthComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authService.snapshot.authed) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/dashboard']);
     }
 
     if (this.route.snapshot.data.action === 'logout') {
@@ -28,6 +28,6 @@ export class AuthComponent implements OnInit {
 
   login() {
     this.authService.login();
-    this.router.navigate(['/']);
+    this.router.navigate(['/dashboard']);
   }
 }

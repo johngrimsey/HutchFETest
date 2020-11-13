@@ -10,6 +10,9 @@ import { AuthComponent } from './components/auth/auth.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FlexLayoutModule, FlexModule } from '@angular/flex-layout';
 import { EnvInfoComponent } from './components/env-info/env-info.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { VersionInterceptor } from './interceptors/version.interceptor';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { EnvInfoComponent } from './components/env-info/env-info.component';
     FlexModule,
     FlexLayoutModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: VersionInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class EnvVersionService {
+export class VersionService {
   apiVersion = new BehaviorSubject<number>(10);
   dataVersion = new BehaviorSubject<number>(1);
 

@@ -49,7 +49,7 @@ export class UserComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy)
       ).subscribe();
 
-    this.staticDataService.getStaticData('placeholder', 'placeholder', 'placeholder').subscribe(staticDataResponse => {
+    this.staticDataService.getData().subscribe(staticDataResponse => {
       this.staticData = staticDataResponse;
       // Additional cars map is needed to get static car data by carId as user cars doesn't contain all the required visual properties (e.g car model)
       for (let i = 0; i < this.staticData.cars.length; i++) {
@@ -92,7 +92,7 @@ export class UserComponent implements OnInit, OnDestroy {
         this.carManufacturerEnumMap[Manufacturer[manufacturer]] = manufacturer;
       });
 
-      this.portalSyncService.getPortalSync('placeholder', 'placeholder', 'placeholder').subscribe(portalSyncResponse => {
+      this.portalSyncService.getData().subscribe(portalSyncResponse => {
         this.portalSync = portalSyncResponse;
       });
     });

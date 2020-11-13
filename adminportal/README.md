@@ -1,27 +1,34 @@
-# Adminportal
+# Hutch FE Test - John Grimsey
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.
+## Notes
 
-## Development server
+I spent about two hours I think, apologies time ran away with me.
+This is very rough and I could have made it prettier and more secure. I didn't put any effort in to ensuring all fonts etc were consistent. I chose to focus on logic.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Search
 
-## Code scaffolding
+I ran out of time. Plan would be to have matching user records displayed in a dropdown just like Google. Then clicking a result or hitting enter would then take you to that user record at `/user`.
+The template logic isn't scalable. I would use a iterate over an array containing data to configure search types.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### `UserComponent`
 
-## Build
+This form would be broken down into one component per section rather than showing/hiding sections of the form.
+Allowing for correct better performance and clearer testing.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### `EnvInfoComponent`
 
-## Running unit tests
+Would trigger a reload of data when user changes API or data version.
+API/data versions are persisted via `LocalStorage`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Auth via JWT
 
-## Running end-to-end tests
+For signing of API requests with JWT, and handling of expired/invalid tokens please see `app/interceptors/auth.interceptor.ts`. 
+JWT is persisted via `LocalStorage`.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### API / Data Version
 
-## Further help
+Please see `app/interceptors/version.interceptor.ts`. This would need logic to ensure only relevant API paths receive api/version HTTP headers.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### API Error handling
+
+Rather than handling errors for each API call I built a global handler setup using `ApiService` and `ApiErrorService`. Centralised error handling can often be better for handling global errors.

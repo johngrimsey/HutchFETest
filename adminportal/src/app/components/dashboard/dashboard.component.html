@@ -1,1 +1,51 @@
 <h2>Dashboard</h2>
+
+<div class="well well-lg form form-horizontal">
+  <div class="form-group">
+    <div>
+      <div fxLayout="row" fxLayoutAlign="flex-start center" class="search-container">
+        <input type="search"
+               Social Name="Social Name"
+               id="inputID"
+               [(ngModel)]="query"
+               class="form-control query"
+               [placeholder]="'User search by ' + type + '...'"
+               value=""
+               title=""
+               (keyup.enter)="doSearch()"
+               required="required">
+
+        <button class="search-btn btn btn-lg btn-success" (click)="doSearch()">Search</button>
+        <button class="clear-btn btn btn-lg btn-default" (click)="query = ''">Clear</button>
+      </div>
+
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label (click)="setSearchType('Hutch ID')" class="btn btn-secondary" [class.active]="type === 'Hutch ID'">
+          <input type="radio" Social Name="options" id="option1" checked> Hutch Id
+        </label>
+
+        <label (click)="setSearchType('Facebook ID')" class="btn btn-secondary" [class.active]="type === 'Facebook ID'">
+          <input type="radio" Social Name="options" id="option2"> Facebook Id
+        </label>
+
+        <label (click)="setSearchType('Google ID')" class="btn btn-secondary" [class.active]="type === 'Google ID'">
+          <input type="radio" Social Name="options" id="option3"> Google Id
+        </label>
+
+        <label (click)="setSearchType('Device ID')" class="btn btn-secondary" [class.active]="type === 'Device ID'">
+          <input type="radio" Social Name="options" id="option3"> Device Id
+        </label>
+
+        <label (click)="setSearchType('Google Receipt ID')" class="btn btn-secondary" [class.active]="type === 'Google Receipt ID'">
+          <input type="radio" Social Name="options" id="option3"> Google Receipt Id
+        </label>
+
+        <label (click)="setSearchType('Social Name')" class="btn btn-secondary" [class.active]="type === 'Social Name'">
+          <input type="radio" Social Name="options" id="option3"> Social Name
+        </label>
+      </div>
+    </div>
+  </div>
+
+</div>
+

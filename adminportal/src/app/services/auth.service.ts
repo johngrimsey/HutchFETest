@@ -28,6 +28,10 @@ export class AuthService {
     }
   }
 
+  getToken() {
+    return localStorage.getItem('jwt');
+  }
+
   /**
    * Simulate storing a granted JWT
    */

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { EnvVersionService } from '../../services/env-version.service';
+import { VersionService } from '../../services/version.service';
 import { merge, Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 
@@ -19,16 +19,16 @@ export class EnvInfoComponent implements OnInit, OnDestroy {
   apiVersions = [10, 20];
   dataVersions = [1, 2];
 
-  constructor(private envVersionService: EnvVersionService) {
+  constructor(private versionService: VersionService) {
   }
 
   ngOnInit(): void {
-    const env = this.envVersionService.apiVersionChanges
+    const env = this.versionService.apiVersionChanges
       .pipe(
         tap(v => this.apiVersion = v),
       );
 
-    const data = this.envVersionService.dataVersionChanges
+    const data = this.versionService.dataVersionChanges
       .pipe(
         tap(v => this.dataVersion = v),
       );
@@ -44,10 +44,10 @@ export class EnvInfoComponent implements OnInit, OnDestroy {
   }
 
   onApiVersionChange(val: number) {
-    this.envVersionService.setApiVersion(val);
+    this.versionService.setApiVersion(val);
   }
 
   onDataVersionChange(val: number) {
-    this.envVersionService.setDataVersion(val);
+    this.versionService.setDataVersion(val);
   }
 }
