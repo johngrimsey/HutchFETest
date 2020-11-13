@@ -1,4 +1,23 @@
-<h1>{{title}}</h1>
-<div>
-    <router-outlet></router-outlet>
+<div class="navbar">
+  <a class="navbar-brand" href="/">
+    Hutch FE Test - Admin Portal
+  </a>
+
+  <ul class="nav navbar-nav">
+    <li routerLinkActive="active">
+      <a routerLink="/">Dashboard</a>
+    </li>
+
+    <li routerLinkActive="active">
+      <a routerLink="/user">User</a>
+    </li>
+
+    <li *ngIf="authed|async">
+      <a routerLink="/logout">Logout</a>
+    </li>
+  </ul>
+</div>
+
+<div class="container">
+  <router-outlet></router-outlet>
 </div>

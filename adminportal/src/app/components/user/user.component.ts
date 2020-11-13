@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Manufacturer } from '../enums/Manufacturer';
-import { Augment } from '../interfaces/models/Augment';
-import { Car } from '../interfaces/models/Car';
-import { Resource } from '../interfaces/models/Resource';
-import { PortalSync } from '../interfaces/responses/PortalSync';
-import { StaticData } from '../interfaces/responses/StaticData';
-import { PortalSyncService } from '../services/portal-sync.service';
-import { StaticDataService } from '../services/static-data.service';
+import { Manufacturer } from '../../enums/Manufacturer';
+import { Augment } from '../../interfaces/models/Augment';
+import { Car } from '../../interfaces/models/Car';
+import { Resource } from '../../interfaces/models/Resource';
+import { PortalSync } from '../../interfaces/responses/PortalSync';
+import { StaticData } from '../../interfaces/responses/StaticData';
+import { PortalSyncService } from '../../services/portal-sync.service';
+import { StaticDataService } from '../../services/static-data.service';
 
 @Component({
   selector: 'app-user',
