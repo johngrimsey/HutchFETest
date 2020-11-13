@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Manufacturer } from '../../enums/Manufacturer';
 import { Augment } from '../../interfaces/models/Augment';
 import { Car } from '../../interfaces/models/Car';
@@ -7,13 +7,18 @@ import { PortalSync } from '../../interfaces/responses/PortalSync';
 import { StaticData } from '../../interfaces/responses/StaticData';
 import { PortalSyncService } from '../../services/portal-sync.service';
 import { StaticDataService } from '../../services/static-data.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { takeUntil, tap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.css'],
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnDestroy {
+  private destroy = new Subject<void>();
+  fragment = 'account-information';
 
   public staticData: StaticData;
   public portalSync: PortalSync;
@@ -24,9 +29,26 @@ export class UserComponent implements OnInit {
   public orderedFTUEConfig: any = null;
   public carManufacturerEnumMap: any;
 
-  constructor(public portalSyncService: PortalSyncService, public staticDataService: StaticDataService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    public portalSyncService: PortalSyncService,
+    public staticDataService: StaticDataService) {
+
+  }
 
   ngOnInit(): void {
+    this.route.fragment
+      .pipe(
+        tap(fragment => {
+          if (!fragment) {
+            this.router.navigate(['/user'], { fragment: 'account-information' });
+          }
+        }),
+        tap(f => this.fragment = f),
+        takeUntil(this.destroy)
+      ).subscribe();
+
     this.staticDataService.getStaticData('placeholder', 'placeholder', 'placeholder').subscribe(staticDataResponse => {
       this.staticData = staticDataResponse;
       // Additional cars map is needed to get static car data by carId as user cars doesn't contain all the required visual properties (e.g car model)
@@ -76,4 +98,7 @@ export class UserComponent implements OnInit {
     });
   }
 
+  ngOnDestroy() {
+    this.destroy.next();
+  }
 }
