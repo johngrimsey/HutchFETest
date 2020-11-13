@@ -1,25 +1,25 @@
-<div class="navbar">
-  <a class="navbar-brand" href="/">
-    Hutch FE Test - Admin Portal
-  </a>
-
-  <ul class="nav navbar-nav">
-    <li routerLinkActive="active">
-      <a routerLink="/dashboard">Dashboard</a>
-    </li>
-
-    <li routerLinkActive="active">
-      <a routerLink="/user">User</a>
-    </li>
-
-    <li *ngIf="authed|async">
-      <a routerLink="/logout">Logout</a>
-    </li>
-  </ul>
-
+<div fxLayout="row" fxLayoutAlign="space-between center">
   <div>
-    <span class="badge">{{ env }}</span>
+    <span class="navbar-brand">
+      Hutch FE Test - Admin Portal
+    </span>
+
+    <ul class="nav navbar-nav">
+      <li routerLinkActive="active">
+        <a routerLink="/dashboard">Dashboard</a>
+      </li>
+
+      <li routerLinkActive="active">
+        <a routerLink="/user">User</a>
+      </li>
+
+      <li *ngIf="authed|async">
+        <a routerLink="/logout">Logout</a>
+      </li>
+    </ul>
   </div>
+
+  <app-env-info *ngIf="authed|async"></app-env-info>
 </div>
 
 <div class="container">

@@ -1,0 +1,13 @@
+<div fxLayout="row" fxLayoutAlign="space-between center">
+  <select [(ngModel)]="apiVersion" (ngModelChange)="onApiVersionChange(apiVersion)" class="api-version btn btn-primary" id="apiVersion" name="apiVersion">
+    <option *ngFor="let v of apiVersions" [ngValue]="v">API v{{ v }}</option>
+  </select>
+
+  <select [(ngModel)]="dataVersion" (ngModelChange)="onDataVersionChange(dataVersion)" class="data-version btn btn-info">
+    <option *ngFor="let v of dataVersions" [ngValue]="v">Data v{{ v }}</option>
+  </select>
+
+  <button disabled type="button" class="btn btn-success env">
+    Env&nbsp;&nbsp;<span class="badge badge-light">{{ env }}</span>
+  </button>
+</div>

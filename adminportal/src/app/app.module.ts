@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { FlexModule } from '@angular/flex-layout';
+import { EnvInfoComponent } from './components/env-info/env-info.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     UserComponent,
     AuthComponent,
     DashboardComponent,
+    EnvInfoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FlexModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
