@@ -2,7 +2,7 @@
 
 ## Notes
 
-I spent about two hours I think, apologies time ran away with me.
+I spent about two hours I think, apologies time ran away with me. I added some features to help provide context for developing some of the requested features.
 This is very rough and I could have made it prettier and more secure. I didn't put any effort in to ensuring all fonts etc were consistent. I chose to focus on logic.
 
 ### Search
@@ -17,7 +17,7 @@ I'd add helpful icons to admin section links. I'd also then mirror those section
 ### `UserComponent`
 
 This form would be broken down into one component per section rather than showing/hiding sections of the form.
-Allowing for correct better performance and clearer testing.
+Allowing for better performance and clearer testing.
 
 ### `EnvInfoComponent`
 
