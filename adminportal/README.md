@@ -10,6 +10,11 @@ This is very rough and I could have made it prettier and more secure. I didn't p
 I ran out of time. Plan would be to have matching user records displayed in a dropdown just like Google. Then clicking a result or hitting enter would then take you to that user record at `/user`.
 The template logic isn't scalable. I would use a iterate over an array containing data to configure search types.
 
+### Search Logic
+
+
+To implement search with the mock data I would have taken a functional approach using lodash to build a search function for each search field. This function would then be passed to a service to be executed on the given data and return a normalized result, in this case a subset of `PortalSync.userProfile` fields.
+
 ### Dashboard 
 
 I'd add helpful icons to admin section links. I'd also then mirror those section links in a menu in the navbar.
